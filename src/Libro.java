@@ -5,16 +5,12 @@ public class Libro {
     private int año;
     private String genero;
 
-    public Libro(int ISBN, String autor, int año, String genero) {
-        this.ISBN = ISBN;
+    public Libro(String titulo, String autor, int año, String genero) {
+        this.titulo = titulo;
         this.autor = autor;
         this.año = año;
         this.genero = genero;
-        this.titulo = titulo;
-    }
-
-    public Libro(String cienAñosDeSoledad, String gabrielGarcíaMárquez, int i) {
-
+        this.ISBN = (int) (Math.random() * 100000);
     }
 
     public int getISBN() {
@@ -23,6 +19,14 @@ public class Libro {
 
     public void setISBN(int ISBN) {
         this.ISBN = ISBN;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getAutor() {
@@ -49,22 +53,12 @@ public class Libro {
         this.genero = genero;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void mostrarInformacion() {
+        System.out.println("______________");
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+        System.out.println("Año: " + año);
+        System.out.println("Género: " + genero);
+        System.out.println("ISBN: " + ISBN);
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void MostrarInformacion() {
-        System.out.println("ISBN: " + this.ISBN);
-        System.out.println("Autor: " + this.autor);
-        System.out.println("Genero: " + this.genero);
-        System.out.println("Titulo: " + this.titulo);
-        System.out.println("Año: " + this.año);
-
-    }
-
-
 }

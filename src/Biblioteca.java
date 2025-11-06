@@ -1,23 +1,22 @@
 import java.util.ArrayList;
 
 public class Biblioteca {
-    private String Nombre;
+    private String nombre;
     private int registro;
     private ArrayList<Libro> libros;
 
-
-
     public Biblioteca() {
-        this.Nombre = "DownStreet";
-        this.registro = registro;
+        this.nombre = "DownStreet";
+        this.registro = 0;
+        this.libros = new ArrayList<>();
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public int getRegistro() {
@@ -29,13 +28,36 @@ public class Biblioteca {
     }
 
 
+    public void librosenlabiblioteca() {
+        ArrayList<String> libros_en_biblioteca = new ArrayList<String>();
+        libros_en_biblioteca.add("El fallecimiento del cielo,\nEl fantasma de Canterville,\nEl fundamento del ser,\nFlores en las cumbres,\nLa fe de un misionero y sus dones espirituales,\nLas formas de la felicidad,\nFuenteovejuna,\nLa fierecilla domada,\nLas Formas del Círculo,\nFacundo,\nFelipe III y La Dorada");
+        System.out.println(libros_en_biblioteca);
+    }
 
-    public void AñadirLibro(Libro libro) {
+    public void añadirLibro(Libro libro) {
+        for (Libro l : libros) {
+            if (l.getTitulo().equalsIgnoreCase(libro.getTitulo())) {
+                System.out.println("El libro '" + libro.getTitulo() + "' ya existe en la biblioteca.");
+                return;
+            }
+        }
 
         libros.add(libro);
-        System.out.println("Libro añadido: " + libro);
-
-
+        setRegistro(getRegistro() + 1);
+        System.out.println("Libro añadido correctamente: " + libro.getTitulo());
     }
+
+    public void mostrarLibros() {
+        if (libros.isEmpty()) {
+            System.out.println("La biblioteca no tiene libros registrados.");
+        } else {
+            System.out.println("\nLibros en la biblioteca '" + nombre + "':");
+            for (Libro libro : libros) {
+                libro.mostrarInformacion();
+            }
+        }
+    }
+
+
 
 }
