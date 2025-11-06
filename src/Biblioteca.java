@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class Biblioteca {
     private String nombre;
     private int registro;
-    private ArrayList<Libro> libros;
+    private ArrayList<Libro> librosenlabiblioteca;
 
     public Biblioteca() {
         this.nombre = "DownStreet";
         this.registro = 0;
-        this.libros = new ArrayList<>();
+        this.librosenlabiblioteca = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -35,24 +35,25 @@ public class Biblioteca {
     }
 
     public void añadirLibro(Libro libro) {
-        for (Libro l : libros) {
+        for (Libro l : librosenlabiblioteca) {
             if (l.getTitulo().equalsIgnoreCase(libro.getTitulo())) {
                 System.out.println("El libro '" + libro.getTitulo() + "' ya existe en la biblioteca.");
                 return;
             }
         }
 
-        libros.add(libro);
+        librosenlabiblioteca.add(libro);
         setRegistro(getRegistro() + 1);
         System.out.println("Libro añadido correctamente: " + libro.getTitulo());
+
     }
 
     public void mostrarLibros() {
-        if (libros.isEmpty()) {
+        if (librosenlabiblioteca.isEmpty()) {
             System.out.println("La biblioteca no tiene libros registrados.");
         } else {
             System.out.println("\nLibros en la biblioteca '" + nombre + "':");
-            for (Libro libro : libros) {
+            for (Libro libro : librosenlabiblioteca) {
                 libro.mostrarInformacion();
             }
         }

@@ -6,8 +6,9 @@ public class Main {
 
         System.out.println("Nombre de la biblioteca: " + biblioteca.getNombre());
 
-        System.out.println("Estos son los libros que hay en la biblioteca: \n");
+        System.out.println("Estos son los libros que hay nuevos en la biblioteca: \n");
         biblioteca.librosenlabiblioteca();
+
 
 
 
