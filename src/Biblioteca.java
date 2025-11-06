@@ -30,6 +30,12 @@ public class Biblioteca {
 
     public void librosenlabiblioteca() {
         ArrayList<String> libros_en_biblioteca = new ArrayList<String>();
+        libros_en_biblioteca.add("");
+        libros_en_biblioteca.add("");
+        libros_en_biblioteca.add("");
+        libros_en_biblioteca.add("");
+        libros_en_biblioteca.add("");
+
         libros_en_biblioteca.add("El fallecimiento del cielo,\nEl fantasma de Canterville,\nEl fundamento del ser,\nFlores en las cumbres,\nLa fe de un misionero y sus dones espirituales,\nLas formas de la felicidad,\nFuenteovejuna,\nLa fierecilla domada,\nLas Formas del Círculo,\nFacundo,\nFelipe III y La Dorada");
         System.out.println(libros_en_biblioteca);
     }
