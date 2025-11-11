@@ -3,68 +3,76 @@ import java.util.ArrayList;
 public class Biblioteca {
     private String nombre;
     private int registro;
-    private ArrayList<Libro> librosenlabiblioteca;
+    private ArrayList<Libro> libros;
+    private ArrayList<String> librosIniciales;
 
-    public Biblioteca() {
-        this.nombre = "DownStreet";
+    public Biblioteca(String nombre) {
+        this.nombre = nombre;
         this.registro = 0;
-        this.librosenlabiblioteca = new ArrayList<>();
+        this.libros = new ArrayList<>();
+        this.librosIniciales = new ArrayList<>();
+
+        librosIniciales.add("El fallecimiento del cielo");
+        librosIniciales.add("El fantasma de Canterville");
+        librosIniciales.add("El fundamento del ser");
+        librosIniciales.add("Flores en las cumbres");
+        librosIniciales.add("La fe de un misionero y sus dones espirituales");
+        librosIniciales.add("Las formas de la felicidad");
+        librosIniciales.add("Fuenteovejuna");
+        librosIniciales.add("La fierecilla domada");
+        librosIniciales.add("Las Formas del Círculo");
+        librosIniciales.add("Facundo");
+        librosIniciales.add("Felipe III y La Dorada");
     }
+
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+    public void mostrarLibrosIniciales() {
+        for (String titulo : librosIniciales) {
+            System.out.println(" - " + titulo);
+        }
     }
 
-    public int getRegistro() {
-        return registro;
-    }
-
-    public void setRegistro(int registro) {
-        this.registro = registro;
-    }
-
-
-    public void librosenlabiblioteca() {
-        ArrayList<String> libros_en_biblioteca = new ArrayList<String>();
-        libros_en_biblioteca.add("");
-        libros_en_biblioteca.add("");
-        libros_en_biblioteca.add("");
-        libros_en_biblioteca.add("");
-        libros_en_biblioteca.add("");
-
-        libros_en_biblioteca.add("El fallecimiento del cielo,\nEl fantasma de Canterville,\nEl fundamento del ser,\nFlores en las cumbres,\nLa fe de un misionero y sus dones espirituales,\nLas formas de la felicidad,\nFuenteovejuna,\nLa fierecilla domada,\nLas Formas del Círculo,\nFacundo,\nFelipe III y La Dorada");
-        System.out.println(libros_en_biblioteca);
-    }
 
     public void añadirLibro(Libro libro) {
-        for (Libro l : librosenlabiblioteca) {
+        for (Libro l : libros) {
             if (l.getTitulo().equalsIgnoreCase(libro.getTitulo())) {
                 System.out.println("El libro '" + libro.getTitulo() + "' ya existe en la biblioteca.");
                 return;
             }
         }
 
-        librosenlabiblioteca.add(libro);
-        setRegistro(getRegistro() + 1);
+        libros.add(libro);
+        registro++;
         System.out.println("Libro añadido correctamente: " + libro.getTitulo());
-
     }
 
+
     public void mostrarLibros() {
-        if (librosenlabiblioteca.isEmpty()) {
-            System.out.println("La biblioteca no tiene libros registrados.");
+        if (libros.isEmpty()) {
+            System.out.println("No se han añadido nuevos libros todavía.");
         } else {
-            System.out.println("\nLibros en la biblioteca '" + nombre + "':");
-            for (Libro libro : librosenlabiblioteca) {
+            System.out.println("Libros nuevos registrados en '" + nombre + "':");
+            for (Libro libro : libros) {
                 libro.mostrarInformacion();
             }
         }
     }
 
 
+    public void mostrarColeccionCompleta() {
 
+        for (String titulo : librosIniciales) {
+            System.out.println(" - " + titulo);
+        }
+
+
+        for (Libro libro : libros) {
+            System.out.println(" - " + libro.getTitulo() + " (Autor: " + libro.getAutor() + ", Año: " + libro.getAño() + ", Género: " + libro.getGenero() + ")");
+        }
+    }
 }
