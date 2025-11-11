@@ -13,7 +13,6 @@ public class Libro {
         this.ISBN = (int) (Math.random() * 100000);
     }
 
-
     public int getISBN() {
         return ISBN;
     }
