@@ -13,8 +13,17 @@ public class Main {
         biblioteca.añadirLibro(new Libro("Harry Potter", "J.K. Rowling", 1997, "Fantasía"));
         biblioteca.añadirLibro(new Libro("Geronimo Stilton", "Elisabetta Dami", 2000, "Aventura"));
 
+
+
+
         System.out.println("Libros añadidos recientemente: ");
         biblioteca.mostrarLibros();
+
+
+        biblioteca.quitarLibro("Harry Potter");
+        biblioteca.quitarLibro("Arcane");
+        System.out.println("Libros quitados recientemente: \n --Harry Potter");
+
 
         System.out.println("Lista completa actualizada de la biblioteca '" + biblioteca.getNombre() + "':\n");
         biblioteca.mostrarColeccionCompleta();

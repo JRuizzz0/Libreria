@@ -51,6 +51,21 @@ public class Biblioteca {
         System.out.println("Libro añadido correctamente: " + libro.getTitulo());
     }
 
+    public boolean quitarLibro(String titulo) {
+        for (int i = 0; i < libros.size(); i++) {
+            Libro l = libros.get(i);
+            if (l.getTitulo().equalsIgnoreCase(titulo)) {
+                libros.remove(i);
+                registro--;
+                System.out.println("Libro quitado correctamente: " + titulo);
+                return true;
+            }
+        }
+        System.out.println("El libro no existe en la biblioteca.");
+        return false;
+    }
+
+
 
     public void mostrarLibros() {
         if (libros.isEmpty()) {
