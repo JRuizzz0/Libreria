@@ -5,7 +5,7 @@ public class Libro {
     private int año;
     private String genero;
 
-    public Libro(String titulo, String autor, int año, String genero) {
+    public Libro(String titulo, String autor, int año, String drama, String genero) {
         this.titulo = titulo;
         this.autor = autor;
         this.año = año;

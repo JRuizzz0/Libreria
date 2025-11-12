@@ -4,37 +4,29 @@ public class Biblioteca {
     private String nombre;
     private int registro;
     private ArrayList<Libro> libros;
-    private ArrayList<String> librosIniciales;
 
     public Biblioteca(String nombre) {
         this.nombre = nombre;
         this.registro = 0;
         this.libros = new ArrayList<>();
-        this.librosIniciales = new ArrayList<>();
 
-        librosIniciales.add("El fallecimiento del cielo");
-        librosIniciales.add("El fantasma de Canterville");
-        librosIniciales.add("El fundamento del ser");
-        librosIniciales.add("Flores en las cumbres");
-        librosIniciales.add("La fe de un misionero y sus dones espirituales");
-        librosIniciales.add("Las formas de la felicidad");
-        librosIniciales.add("Fuenteovejuna");
-        librosIniciales.add("La fierecilla domada");
-        librosIniciales.add("Las Formas del Círculo");
-        librosIniciales.add("Facundo");
-        librosIniciales.add("Felipe III y La Dorada");
+
+        libros.add(new Libro("El fallecimiento del cielo", "Autor desconocido", 1985, "Drama", "ISBN001"));
+        libros.add(new Libro("El fantasma de Canterville", "Oscar Wilde", 1887, "Comedia", "ISBN002"));
+        libros.add(new Libro("El fundamento del ser", "Martín Heidegger", 1927, "Filosofía", "ISBN003"));
+        libros.add(new Libro("Flores en las cumbres", "Emily Brontë", 1847, "Romance", "ISBN004"));
+        libros.add(new Libro("La fe de un misionero y sus dones espirituales", "Autor desconocido", 1972, "Religión", "ISBN005"));
+        libros.add(new Libro("Las formas de la felicidad", "Bertrand Russell", 1930, "Ensayo", "ISBN006"));
+        libros.add(new Libro("Fuenteovejuna", "Lope de Vega", 1619, "Teatro", "ISBN007"));
+        libros.add(new Libro("La fierecilla domada", "William Shakespeare", 1590, "Comedia", "ISBN008"));
+        libros.add(new Libro("Las Formas del Círculo", "Autor desconocido", 2001, "Poesía", "ISBN009"));
+        libros.add(new Libro("Facundo", "Domingo F. Sarmiento", 1845, "Ensayo", "ISBN010"));
+        libros.add(new Libro("Felipe III y La Dorada", "Autor desconocido", 1621, "Historia", "ISBN011"));
     }
 
 
     public String getNombre() {
         return nombre;
-    }
-
-
-    public void mostrarLibrosIniciales() {
-        for (String titulo : librosIniciales) {
-            System.out.println(" - " + titulo);
-        }
     }
 
 
@@ -51,6 +43,7 @@ public class Biblioteca {
         System.out.println("Libro añadido correctamente: " + libro.getTitulo());
     }
 
+
     public boolean quitarLibro(String titulo) {
         for (int i = 0; i < libros.size(); i++) {
             Libro l = libros.get(i);
@@ -65,29 +58,15 @@ public class Biblioteca {
         return false;
     }
 
-
-
-    public void mostrarLibros() {
+    void mostrarColeccionCompleta() {
         if (libros.isEmpty()) {
-            System.out.println("No se han añadido nuevos libros todavía.");
+            System.out.println("La biblioteca no tiene libros registrados.");
         } else {
-            System.out.println("Libros nuevos registrados en '" + nombre + "':");
+            System.out.println("Colección completa de '" + nombre + "':");
             for (Libro libro : libros) {
                 libro.mostrarInformacion();
+                System.out.println("--------------------------------");
             }
-        }
-    }
-
-
-    public void mostrarColeccionCompleta() {
-
-        for (String titulo : librosIniciales) {
-            System.out.println(" - " + titulo);
-        }
-
-
-        for (Libro libro : libros) {
-            System.out.println(" - " + libro.getTitulo() + " (Autor: " + libro.getAutor() + ", Año: " + libro.getAño() + ", Género: " + libro.getGenero() + ")");
         }
     }
 }
