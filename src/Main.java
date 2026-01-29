@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main {
     private static final MyScanner sc = new MyScanner();
 
@@ -40,6 +44,15 @@ public class Main {
                     biblioteca.mostrarColeccionCompleta();
                     break;
 
+
+                case 5:
+                    System.out.println("\nEscribir archivos");
+                    escribirArchivos();
+                    break;
+
+                case 6:
+                    System.out.println("\nLeer archivos");
+
                 case 0:
                     System.out.println("\nGracias por visitar mi biblioteca.");
                     break;
@@ -57,6 +70,44 @@ public class Main {
         System.out.println("2. Quitar libros");
         System.out.println("3. Mostrar información de libros actuales");
         System.out.println("4. Mostrar la biblioteca completa");
+        System.out.println("5. Escribir archivos txt");
+        System.out.println("6. Leer los archivos txt");
         System.out.println("0. Salir");
     }
+
+    public static void escribirArchivos() {
+        String linea;
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Alumno.DESKTOP-DI5KTUG\\Documents\\usuarios.txt"))){
+            bw.write("=== BIBLIOTECA MUNICIPAL \"NOMBRE DE LA BIBLIOTECA\" ===\n" +
+                    "ARCHIVO: REGISTRO DE USUARIOS\n" +
+                    "Fecha creación: 15/03/2024\n" +
+                    "Formato: ID|Nombre|Email|Estado|Fecha_Registro (ejemplo)");
+            bw.newLine();
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Alumno.DESKTOP-DI5KTUG\\Documents\\libros.txt"))) {
+            bw.write("=== BIBLIOTECA MUNICIPAL \"NOMBRE DE LA BIBLIOTECA\" ===\n" +
+                    "ARCHIVO: CATÁLOGO DE LIBROS\n" +
+                    "Fecha creación: 15/03/2024\n" +
+                    "Formato: ISBN|Título|Autor|Género|Año|Estado|ID_Usuario|Ubicación (ejemplo)\n" +
+                    "====================================================================\n");
+        }catch (IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Alumno.DESKTOP-DI5KTUG\\Documents\\prestamos.txt"))) {
+            bw.write("=== BIBLIOTECA MUNICIPAL \"MIGUEL DE CERVANTES\" ===\n" +
+                    "ARCHIVO: REGISTRO DE PRÉSTAMOS\n" +
+                    "Fecha creación: 15/03/2024\n" +
+                    "Formato: ID_PRESTAMO|ISBN|ID_Usuario|Fecha_Inicio|Fecha_Devolución|Estado|Bibliotecario  (ejemplo)\n" +
+                    "===============================================================================\n");
+        }catch (IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+
+
+    }
+
 }
